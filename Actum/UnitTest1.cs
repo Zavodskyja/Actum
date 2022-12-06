@@ -74,7 +74,7 @@ namespace Actum
         //Login test
         public void Test5()
         {
-            var logout = new Homepage(Driver).Open().Login().Logout(login,password); //doplnit existujici user select napr.
+            var logout = new Homepage(Driver).Open().Login().Logout(login,password); 
             Assert.IsTrue(logout);
         }
 
@@ -82,7 +82,7 @@ namespace Actum
         //Add to cart
         public void Test6()
         {
-            var addToCart = new Homepage(Driver).Open().SelectItem(cartItem).AddToCart(); //doplnit existujici user select napr.
+            var addToCart = new Homepage(Driver).Open().SelectItem(cartItem).AddToCart(); 
             Assert.AreEqual(addToCart.Text, "Product added");
         }
 
@@ -90,8 +90,16 @@ namespace Actum
         //Clear Cart
         public void Test7()
         {
-            var clearCart = new Homepage(Driver).Open().SelectItem(cartItem).ClearCart() ; //doplnit existujici user select napr.
+            var clearCart = new Homepage(Driver).Open().SelectItem(cartItem).ClearCart(); 
             Assert.IsTrue(clearCart);
+        }
+
+        [TestMethod]
+        //Place Order
+        public void Test8()
+        {
+            var order = new Homepage(Driver).Open().SelectItem(cartItem).PlaceOrder();
+            Assert.AreEqual(order, "Thank you for your purchase!");
         }
 
 

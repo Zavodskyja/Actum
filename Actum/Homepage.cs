@@ -57,5 +57,9 @@ namespace Actum
             this.Driver.FindElement(By.XPath(item)).Click();
             return new Cart(Driver);
         }
+
+
+
+
     }
 }
