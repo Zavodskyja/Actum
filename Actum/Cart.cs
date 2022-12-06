@@ -21,6 +21,8 @@ namespace Actum
         public IAlert AddToCart()
         {
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementExists(By.XPath("//*[@id=\"tbodyid\"]/div[2]/div/a")));
+            Driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/div[2]/div/a")).Click();
             wait.Until(ExpectedConditions.AlertIsPresent());
             IAlert alert = Driver.SwitchTo().Alert();
             return alert;

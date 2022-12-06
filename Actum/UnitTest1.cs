@@ -14,9 +14,12 @@ namespace Actum
         private IWebDriver Driver;
 
 
-
+        //
         string login = Utility.login;
         string password = Utility.password;
+
+        // Xpath pro vybrany item k nakupu
+        string cartItem = "/html/body/div[5]/div/div[2]/div/div[1]/div/div/h4";
 
 
 
@@ -72,7 +75,14 @@ namespace Actum
         {
             var logout = new Homepage(Driver).Open().Login().Logout(login,password); //doplnit existujici user select napr.
             Assert.IsTrue(logout);
+        }
 
+        [TestMethod]
+        //Add to cart
+        public void Test6()
+        {
+            var addToCart = new Homepage(Driver).Open().SelectItem(cartItem).AddToCart(); //doplnit existujici user select napr.
+            Assert.AreEqual(addToCart.Text, "Product added");
         }
 
 

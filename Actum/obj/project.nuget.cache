@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ok8AHbKmdkQGJT05VU40zFJw2Z0NVo+37T9p0dyFOPGoj2iQs4V7Tenj8OEHCa4GRb4Y3q9DwjEHlgqP3zlA0w==",
+  "dgSpecHash": "PCsQYFI+6t11DHKaGrJbWs62UioIrdxRG0iweiqElSPc9cNHLTfEB1YmOMtKqvobGfQOlwHA5JmplOBM0rbrKg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zavod\\source\\repos\\Actum\\Actum\\Actum.csproj",
+  "projectFilePath": "C:\\Users\\zavod\\Documents\\GitHub\\Actum\\Actum\\Actum.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zavod\\.nuget\\packages\\anglesharp\\0.17.1\\anglesharp.0.17.1.nupkg.sha512",
     "C:\\Users\\zavod\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",

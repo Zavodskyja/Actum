@@ -3195,11 +3195,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zavod\\source\\repos\\Actum\\Actum\\Actum.csproj",
+      "projectUniqueName": "C:\\Users\\zavod\\Documents\\GitHub\\Actum\\Actum\\Actum.csproj",
       "projectName": "Actum",
-      "projectPath": "C:\\Users\\zavod\\source\\repos\\Actum\\Actum\\Actum.csproj",
+      "projectPath": "C:\\Users\\zavod\\Documents\\GitHub\\Actum\\Actum\\Actum.csproj",
       "packagesPath": "C:\\Users\\zavod\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zavod\\source\\repos\\Actum\\Actum\\obj\\",
+      "outputPath": "C:\\Users\\zavod\\Documents\\GitHub\\Actum\\Actum\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\zavod\\AppData\\Roaming\\NuGet\\NuGet.Config",

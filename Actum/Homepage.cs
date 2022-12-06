@@ -1,6 +1,7 @@
 ﻿using AngleSharp.Html.Dom;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace Actum
         public SignUp SignUp()
         {
             this.Driver.FindElement(By.Id("signin2")).Click();
-            WebDriverWait a = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             return new SignUp(Driver);
         }
@@ -39,9 +40,17 @@ namespace Actum
         public Login Login()
         {
             this.Driver.FindElement(By.Id("login2")).Click();
-            WebDriverWait a = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             return new Login(Driver);
+        }
+
+        public Cart SelectItem(string item)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(item)));
+            this.Driver.FindElement(By.XPath(item)).Click();
+            return new Cart(Driver);
         }
     }
 }
