@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using AngleSharp.Dom;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
@@ -20,17 +21,26 @@ namespace Actum
 
         public IAlert AddToCart()
         {
+            string addToCartButton = "//*[@id=\"tbodyid\"]/div[2]/div/a";
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(ExpectedConditions.ElementExists(By.XPath("//*[@id=\"tbodyid\"]/div[2]/div/a")));
-            Driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/div[2]/div/a")).Click();
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(addToCartButton)));
+            Driver.FindElement(By.XPath(addToCartButton)).Click();
             wait.Until(ExpectedConditions.AlertIsPresent());
             IAlert alert = Driver.SwitchTo().Alert();
             return alert;
         }
 
-        public string CheckCart()
+        public bool ClearCart()
         {
-            return string.Empty; //TODO
+            AddToCart();
+            string clearCartButton = "/html/body/div[6]/div/div[1]/div/table/tbody/tr/td[4]/a";
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(clearCartButton)));
+            Driver.FindElement(By.XPath(clearCartButton)).Click();
+            bool exists = Driver.FindElements(By.ClassName("success")).Count == 0;
+            return exists;
+
+
         }
 
         public string PlaceOrder()

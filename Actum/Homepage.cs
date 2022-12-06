@@ -1,5 +1,6 @@
 ﻿using AngleSharp.Html.Dom;
 using OpenQA.Selenium;
+using OpenQA.Selenium.DevTools;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
@@ -13,12 +14,16 @@ namespace Actum
     public class Homepage
     {
         private IWebDriver Driver;
+        
         string testUrl = "https://www.demoblaze.com";
 
         public Homepage(IWebDriver driver) 
         {
-            Driver = driver;    
+            Driver = driver;
+
         }
+
+        
 
         public Homepage Open()
         {

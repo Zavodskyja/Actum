@@ -2,6 +2,7 @@ using AngleSharp.Dom;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.DevTools;
 using OpenQA.Selenium.Support.UI;
 
 
@@ -83,6 +84,14 @@ namespace Actum
         {
             var addToCart = new Homepage(Driver).Open().SelectItem(cartItem).AddToCart(); //doplnit existujici user select napr.
             Assert.AreEqual(addToCart.Text, "Product added");
+        }
+
+        [TestMethod]
+        //Clear Cart
+        public void Test7()
+        {
+            var clearCart = new Homepage(Driver).Open().SelectItem(cartItem).ClearCart() ; //doplnit existujici user select napr.
+            Assert.IsTrue(clearCart);
         }
 
 
