@@ -27,7 +27,7 @@ namespace Actum
 
         public string SelectedCategory()
         {
-            return string.Empty; //TODO vzít všechny cat, projet je skrze for loop. Vzít z response cat: notebook 
+            return string.Empty; //TODO
         }
 
 

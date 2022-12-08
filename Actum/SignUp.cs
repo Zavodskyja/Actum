@@ -1,6 +1,8 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.DevTools.V106.Page;
+using OpenQA.Selenium.Internal;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
@@ -17,18 +19,37 @@ namespace Actum
     {
 
         private readonly IWebDriver Driver;
+
+        // Page elements
+        [FindsBy(How = How.Id, Using = "sign-username")]
+        private IWebElement signBox;
+
+        [FindsBy(How = How.Id, Using = "sign-password")]
+        private IWebElement passwordBox;
+
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"signInModal\"]/div/div/div[3]/button[2]")]
+        private IWebElement signButton;
+
+
+        //webdriver
         public SignUp(IWebDriver driver)
         {
             Driver = driver;
+            PageFactory.InitElements(driver, this);
+
         }
 
 
 
+
+        //methods
+
+
         public IAlert SignUpSuccesfull(string login, string password)
         {
-            Driver.FindElement(By.Id("sign-username")).SendKeys(login);
-            Driver.FindElement(By.Id("sign-password")).SendKeys(password);
-            Driver.FindElement(By.XPath("//*[@id=\"signInModal\"]/div/div/div[3]/button[2]")).Click();
+            signBox.SendKeys(login);
+            passwordBox.SendKeys(password);
+            signButton.Click();
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.AlertIsPresent());
             IAlert alert = Driver.SwitchTo().Alert();
@@ -37,7 +58,7 @@ namespace Actum
         
         public IAlert SignUpExists(string login, string password)
         {
-            var alert = SignUpSuccesfull(login, password);
+            var alert = SignUpSuccesfull(login, password); 
             return alert;
         }
 

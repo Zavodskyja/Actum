@@ -56,7 +56,7 @@ namespace Actum
         //User Exists test
         public void Test3()
         {
-            var signUpN = new Homepage(Driver).Open().SignUp().SignUpExists("abc", password); //pustit po positive / doplnit login co existuje napr. z DB apod.
+            var signUpN = new Homepage(Driver).Open().SignUp().SignUpExists(login, password); //pustit po positive / doplnit login co existuje napr. z DB apod.
             Assert.AreEqual(signUpN.Text, "This user already exist."); 
             
         }
@@ -71,7 +71,7 @@ namespace Actum
         }
 
         [TestMethod]
-        //Login test
+        //Login logout test
         public void Test5()
         {
             var logout = new Homepage(Driver).Open().Login().Logout(login,password); 
